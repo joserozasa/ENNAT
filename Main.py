@@ -1,35 +1,32 @@
 
-from CreadorProductos import Producto
-
-input_producto = 100
-pedidoA = [100,50,10]
-
-precio_partes = {
-    "p_parte1": 2,
-    "p_parte2": 3,
-    "p_parte3": 4,
-    "p_parte4": 5
-}
+from Creador_Productos import Producto
+from Creador_Pedidos import Pedido
 
 
+pedido = {"Producto_A": 100, "Producto_C": 3}
 
-partes_productoA = [0, 2, 3, 1]
-partes_productoB = [3, 2, 1, 0]
-partes_productoC = [4, 3, 5, 6]
+precio_partes = {"parte_1": 2, "parte_2": 3, "parte_3": 4, "parte_4": 5, "parte_5": 100 }
 
-
-Producto_A = Producto(precio_partes, partes_productoA)
-Producto_B = Producto(precio_partes, partes_productoB)
-Producto_C = Producto(precio_partes, partes_productoC)
-
-
-def valor_compra(Pedido, Producto):
-    pedido = Pedido
-    producto = Producto
-    producto.compuesto_por()
-    for i in range(len(pedido)):
-        print(pedido[i])
+listado_generador_productos = {
+        "Producto_A" : {"parte_1": 1, "parte_2": 1, "parte_3": 1, "parte_4": 1, "parte_5": 1},
+        "Producto_B" : {"parte_1": 1, "parte_3": 3, "parte_4": 1, "parte_5": 1},
+        "Producto_C" : {"parte_1": 4, "parte_2": 4, "parte_3": 3, "parte_4": 5, "parte_5": 1},
+        "Producto_D" : {"parte_1": 1, "parte_2": 1, "parte_3": 1, "parte_4": 1},
+        "Producto_E" : {"parte_1": 1, "parte_2": 1, "parte_3": 1, "parte_4": 1, "parte_5": 100}
+        }
+def iniciador_productos(listado_productos):  # Devuelve una lista con los objetos de productos detallados en listado_productos
+    lista_clase_productos = []
+    for key in listado_productos:
+        lista_clase_productos.append(Producto(key, precio_partes, listado_productos[key]))
+    return lista_clase_productos
+lista_de_clases = iniciador_productos(listado_generador_productos)
 
 
 
-costo_producto(Producto_A)
+
+
+pedido1 = Pedido(pedido, lista_de_clases)
+
+dict = pedido1.total_partes()
+
+print(dict)
