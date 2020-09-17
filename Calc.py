@@ -17,4 +17,5 @@ Producto_A = Producto(precio_partes, productoA)
 Producto_B = Producto(precio_partes, productoB)
 Producto_C = Producto(precio_partes, productoC)
 
+print(Producto_A.compuesto_por())
 print(Producto_C.compuesto_por())
