@@ -1,39 +1,35 @@
 def main():
-    precio_partes = {
-        "p_parte1": 2,
-        "p_parte2": 3,
-        "p_parte3": 4,
-        "p_parte4": 5
-    }
 
-    productoA = [0, 2, 3, 1]
-    productoB = [3, 2, 1, 0]
+    precio_partes = {"parte_1": 2, "parte_2": 3, "parte_3": 4, "parte_4": 5, "parte_5": 100 }
 
-    Producto_A = Producto(precio_partes, productoA)
-    Producto_B = Producto(precio_partes, productoB)
+    q_partes_producto_A = {"parte_1": 0, "parte_2": 2, "parte_3": 3, "parte_4": 1, "parte_5": 1}
+    q_partes_producto_B = {"parte_1": 0,               "parte_3": 3, "parte_4": 1, "parte_5": 1}
 
-    print(Producto_A.compuesto_por())
-    print(Producto_B.compuesto_por())
+    Producto_A = Producto(precio_partes, q_partes_producto_A)
+    Producto_B = Producto(precio_partes, q_partes_producto_B)
+
+    print(Producto_A.costo_producto())
+    print(Producto_B.costo_producto())
 
 
 
 class Producto:
 
     def __init__(self, precios, q_partes):
-        self.q_parte1 = q_partes[0]
-        self.q_parte2 = q_partes[1]
-        self.q_parte3 = q_partes[2]
-        self.q_parte4 = q_partes[3]
-        self.p_parte1 = precios['p_parte1']
-        self.p_parte2 = precios['p_parte2']
-        self.p_parte3 = precios['p_parte3']
-        self.p_parte4 = precios['p_parte4']
+        self.q_partes = q_partes
+        self.p_partes = precios
+        self.n_partes = len(q_partes)
 
     def compuesto_por(self):
-        print('de la Parte 1 hay: {} que cuestan {}'.format(self.q_parte1, self.p_parte1))
-        print('de la Parte 2 hay: {} que cuestan {}'.format(self.q_parte2, self.p_parte2))
-        print('de la Parte 3 hay: {} que cuestan {}'.format(self.q_parte3, self.p_parte3))
-        print('de la Parte 4 hay: {} que cuestan {}'.format(self.q_parte4, self.p_parte4))
+        #print('de la Parte 1 hay: {} que cuestan {}'.format(self.q_parte1, self.p_parte1))
+        pass
+
+    def costo_producto(self):
+        costo_total = 0
+        for key in self.p_partes:
+            if key in self.q_partes:
+                costo_total += self.p_partes[key]*self.q_partes[key]
+        return costo_total
 
 
 
