@@ -24,11 +24,12 @@ def main():
 
 class Producto:
 
-    def __init__(self, nombre, precios, q_partes):
+    def __init__(self, nombre, precios, q_partes, tipo):
         self.nombre = nombre
         self.q_partes = q_partes
         self.p_partes = precios
         self.n_partes = len(q_partes)
+        self.tipo = tipo
 
     def compuesto_por(self):
         for key in self.p_partes:
