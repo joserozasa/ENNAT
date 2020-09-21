@@ -41,6 +41,11 @@ class Pedido():
                 total_partes_dict[parte] = 0
         return total_partes_dict
 
+    def info(self):
+        print('El pedido {} costó ${} y tiene:'.format(self.nombre, self.costo_pedido()))
+        for parte in self.partes_posibles:
+            print('{} {}'.format(self.total_partes()[parte], parte))
+
 
 if __name__ == '__main__':
     main()
