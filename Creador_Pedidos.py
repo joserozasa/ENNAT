@@ -2,7 +2,6 @@
 from Creador_Productos import Producto
 from collections import Counter
 from Setup import precio_partes
-import logging
 
 def main():
     pass
@@ -16,7 +15,7 @@ class Pedido():
         self.nombre = nombre
         self.pedido = detalle_pedido
         self.lista_productos = lista_productos
-        self. partes_posibles = partes_posibles
+        self.partes_posibles = partes_posibles
         self.interes = interes
 
 
@@ -74,7 +73,15 @@ class Pedido():
             for i in alternativas_de_interes:
                 if product == i.nombre:
                     alternativas_de_interes.remove(i)
-
+        tope_de_parte=[]
+        for alternativa in alternativas_de_interes:
+            max_temp = 0
+            print(alternativa.nombre)
+            print(alternativa.q_partes)
+            for parte in alternativa.q_partes:
+                max_temp = self.total_partes()[parte] // alternativa.q_partes[parte]
+                tope_de_parte.append(max_temp)
+        print(tope_de_parte) #Aqui quede, estaba viendo cuantas partes alternativas se podría hacer con las piezas del pedido original.
         for i in alternativas_de_interes:
             #print(i.nombre)
             pass

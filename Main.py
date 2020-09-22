@@ -12,6 +12,6 @@ pedido1 = Pedido('Pedido 1', pedido, lista_de_clases, partes_posibles, interes)
 
 pedido1.Alternativa_Interes()
 
-pedido1.Info()
+#pedido1.Info()
 
 
