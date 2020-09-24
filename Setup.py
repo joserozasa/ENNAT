@@ -1,5 +1,5 @@
 
-pedido = {"Producto_A": 1, "Producto_E": 1}  # Detalle de la cantidad de cada producto en el pedido
+ # Detalle de la cantidad de cada producto en el pedido
 
 
 partes_posibles = {"parte_1": 0, "parte_2": 0, "parte_3": 0, "parte_4": 0, "parte_5": 0} # Solo actualizar cuando se agrega una nueva parte a los productos

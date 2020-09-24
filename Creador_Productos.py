@@ -1,7 +1,5 @@
 def main():
 
-
-
     def iniciador_productos(
             listado_productos):  # Devuelve una lista con los objetos de productos detallados en listado_productos
         lista_clase_productos = []
@@ -10,8 +8,6 @@ def main():
         return lista_clase_productos
 
     lista_clases_productos = iniciador_productos(listado_generador_productos)
-
-
 
 
 class Producto:
