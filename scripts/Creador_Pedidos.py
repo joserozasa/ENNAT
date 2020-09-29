@@ -1,6 +1,6 @@
-from Creador_Productos import Producto
+from scripts.Creador_Productos import Producto
 from collections import Counter
-from Setup import precio_partes
+from scripts.Setup import precio_partes
 import logging
 
 
@@ -18,6 +18,9 @@ class Pedido:
         self.lista_productos = lista_productos
         self.partes_posibles = partes_posibles
         self.interes = interes if interes is not None else []
+
+    def __str__(self):
+        return self.nombre
 
     def costo_pedido(self):
         costo_total_pedido = 0
